@@ -1,8 +1,19 @@
 # Earthquake Magnitude Estimation
 
-**Comparing regression models on recorded earthquake data, with reproducible evaluation and an explicit review of data leakage.**
+**From exploratory analysis to reproducible model evaluation on earthquake catalog data.**
 
-[Français](README.fr.md) · [Notebook](notebooks/original-experiments.ipynb) · [Project report](reports/project-report-fr.pdf) · [Methodology](docs/methodology.md) · [Results](docs/results.md)
+![Python 3.12](https://img.shields.io/badge/Python-3.12-3776AB?logo=python&logoColor=white)
+![scikit-learn](https://img.shields.io/badge/ML-scikit--learn-F7931E?logo=scikitlearn&logoColor=white)
+![Status](https://img.shields.io/badge/Status-in%20development-0F766E)
+[![Validate ML pipeline](https://github.com/rachidelmagrouaIng/earthquake-magnitude-ml/actions/workflows/tests.yml/badge.svg)](https://github.com/rachidelmagrouaIng/earthquake-magnitude-ml/actions/workflows/tests.yml)
+
+**Maintained by Rachid EL MAGROUA · Network & Cybersecurity Engineer**
+
+I am developing this academic project into a documented ML portfolio repository. The current version includes the experiments, dataset, report, a reproducible evaluation script and automated checks. See the [development roadmap](ROADMAP.md) for planned improvements.
+
+**Recruiters:** start with the [project brief](docs/project-brief.md), inspect the [latest notebook](notebooks/earthquake-analysis-v2.ipynb), or [contact me on LinkedIn](https://www.linkedin.com/in/rachid-el-magroua/).
+
+[Français](README.fr.md) · [Notebook v2](notebooks/earthquake-analysis-v2.ipynb) · [Project report](reports/project-report-fr.pdf) · [Methodology](docs/methodology.md) · [Results](docs/results.md)
 
 ## Project overview
 
@@ -57,7 +68,9 @@ python -m unittest discover -s tests -v
 
 The training command produces metrics, per-event predictions, run metadata and a comparison chart. It does not serialize model objects. Run it without `--output` only if you intend to replace the tracked results.
 
-To explore the original notebook, use a Jupyter-compatible editor with the environment above and set the notebook working directory to `notebooks/`. Install Jupyter separately if your editor does not provide it. Saved notebook outputs are historical and have not been overwritten with the new evaluation.
+To explore the v2 notebook, open `notebooks/earthquake-analysis-v2.ipynb` in VS Code or Jupyter with the environment above. It accepts either the repository root or `notebooks/` as the working directory. Install Jupyter separately if your editor does not provide it. Full grid search runs hundreds of fits and can take time. Saved notebook outputs are historical and have not been overwritten with the chronological evaluation.
+
+The earlier notebook is retained as `notebooks/original-experiments.ipynb`; run it with `notebooks/` as the working directory.
 
 ## Repository guide
 
@@ -65,10 +78,14 @@ To explore the original notebook, use a Jupyter-compatible editor with the envir
 | --- | --- |
 | `train.py` | Validated schema, event deduplication, chronological split and model comparison |
 | `data/earthquakes.csv` | Dataset supplied with the academic project |
-| `notebooks/original-experiments.ipynb` | Original code and saved outputs, with the dataset path adjusted |
+| `notebooks/earthquake-analysis-v2.ipynb` | Latest academic notebook: EDA, IQR clipping, alert imputation and tuned ensembles |
+| `notebooks/original-experiments.ipynb` | Earlier experiment version, retained for reference |
 | `reports/project-report-fr.pdf` | Original French report, including IQR filtering and tuning discussion |
 | `docs/methodology.md` | Evaluation choices and limits |
-| `docs/results.md` | Separate original, report and rerun results |
+| `docs/results.md` | Separate historical and chronological evaluation results |
+| `docs/project-brief.md` | Short overview of skills, evidence and project scope |
+| `ROADMAP.md` | Completed work and planned improvements |
+| `CHANGELOG.md` | Dated record of repository changes |
 | `results/` | Reproducible run outputs |
 | `tests/` | Five checks of the evaluation pipeline |
 | `.github/workflows/tests.yml` | Tests and training smoke run on GitHub Actions |
@@ -79,7 +96,7 @@ The original random split places 134 event IDs in both train and test sets. Prep
 
 The reproducible pipeline addresses repeated IDs and preprocessing leakage and provides a restricted feature comparison. It does not reconstruct historical data availability: retained catalog revisions may include later updates. Different catalog IDs may also represent the same physical event.
 
-See [methodology](docs/methodology.md) for details. The report and original notebook describe different experiment variants; their scores should not be combined as if produced by one pipeline.
+See [methodology](docs/methodology.md) for details. The earlier notebook, v2 notebook/report and chronological evaluation represent separate experiments; their scores should not be combined as if produced by one pipeline.
 
 ## Authors
 

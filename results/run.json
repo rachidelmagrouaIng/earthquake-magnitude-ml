@@ -1,0 +1,38 @@
+{
+  "task": "Retrospective magnitude estimation; not future-event forecasting",
+  "dataset_sha256": "cd9516c9dc5ff2b8c075107f8dfa8cc5f2f744825340dedd5fd1fc3ccccb7b71",
+  "rows_raw": 1137,
+  "unique_events": 602,
+  "duplicate_id_rows_removed": 535,
+  "train_rows": 481,
+  "test_rows": 121,
+  "train_end": "2024-08-14 03:57:06+00:00",
+  "test_start": "2024-08-14 03:57:09+00:00",
+  "shared_event_ids": 0,
+  "seed": 42,
+  "python": "3.12.14",
+  "pandas": "2.2.3",
+  "numpy": "2.3.5",
+  "scikit_learn": "1.8.0",
+  "geo_features": [
+    "longitude",
+    "latitude",
+    "depth"
+  ],
+  "catalog_features": [
+    "longitude",
+    "latitude",
+    "depth",
+    "sig",
+    "nst",
+    "rms",
+    "dmin",
+    "mmi",
+    "cdi",
+    "alert",
+    "status",
+    "magType",
+    "continent"
+  ],
+  "catalog_warning": "Diagnostic only: includes target-related and post-event fields"
+}
